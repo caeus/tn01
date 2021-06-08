@@ -104,7 +104,7 @@ object Main extends App {
             .action((wordsSize, config) => config.map(_.copy(maxWordSize = wordsSize)))
             .validate(min => if (min < 4) Left("max word size must be 4 or more") else Right(())),
           opt[Int]("min-word-size")
-            .text("Size of the randomly produced words (min 4, default 4)")
+            .text("Size of the randomly produced words (min 4, default )")
             .action((wordsSize, config) => config.map(_.copy(maxWordSize = wordsSize)))
             .validate(min => if (min < 4) Left("min word size must be 4 or more") else Right(())),
           opt[Int]("num-workers")
