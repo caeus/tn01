@@ -7,7 +7,7 @@ object MainSpec extends DefaultRunnableSpec {
 
   override def spec = testM("takeWhile") {
     //I do this test because documentation is not clear the difference between takeWhile and takeUntil
-    assertM(ZStream.repeat(false).takeWhile(identity)
+    assertM(ZStream.repeat(false).takeUntil(!_)
       .run(ZSink.collectAll[Boolean]))(Assertion.hasSize(Assertion.equalTo(1)))
   }
 }
